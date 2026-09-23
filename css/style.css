@@ -1,0 +1,485 @@
+/* ==========================================================================
+   고래잇 x 이마트 보물찾기 - 공통 스타일 & 디자인 시스템 (css/style.css)
+   ========================================================================== */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800;900&display=swap');
+
+:root {
+  /* Brand Core Colors */
+  --color-emart-yellow: #FFB81C;
+  --color-emart-yellow-hover: #EAA308;
+  --color-brand-navy: #112A46;
+  --color-navy-dark: #0A192F;
+  --color-navy-light: #1A3A5E;
+  
+  /* Section Navigation Colors */
+  --color-meat-red: #E3342F;
+  --color-vege-green: #38C172;
+  --color-seafood-blue: #4A90E2;
+  --color-accent-gold: #FFD700;
+
+  /* Neutral & Grayscale */
+  --color-white: #FFFFFF;
+  --color-bg-light: #F8FAFC;
+  --color-bg-card: #FFFFFF;
+  --color-text-main: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-sub: #475569;
+  --color-border: #E2E8F0;
+  --color-border-hover: #CBD5E1;
+
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 2px 8px rgba(17, 42, 70, 0.06);
+  --shadow-md: 0 8px 24px rgba(17, 42, 70, 0.1);
+  --shadow-lg: 0 16px 40px rgba(17, 42, 70, 0.16);
+  --shadow-xl: 0 24px 60px rgba(17, 42, 70, 0.22);
+  --shadow-glow-yellow: 0 0 24px rgba(255, 184, 28, 0.45);
+  
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Radii & Layout */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  --container-max-w: 1200px;
+
+  /* Typography */
+  --font-family: 'Pretendard', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Background Atmosphere */
+.bg-ambient-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 10% 15%, rgba(255, 184, 28, 0.09) 0%, transparent 45%),
+    radial-gradient(circle at 90% 70%, rgba(74, 144, 226, 0.08) 0%, transparent 45%),
+    linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-w);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   Header & Global Navigation Bar (GNB)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  transition: var(--transition-smooth);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+/* Brand Home Button with Character & Logo */
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.brand-group:hover {
+  transform: scale(1.02);
+}
+
+.brand-character-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFF8E1;
+  border: 2px solid var(--color-emart-yellow);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(255, 184, 28, 0.3);
+}
+
+.brand-character-avatar img {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.brand-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--color-brand-navy);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.brand-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+/* Desktop Navigation Links */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-link {
+  color: var(--color-text-sub);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 700;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: var(--color-emart-yellow);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-brand-navy);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Language Switcher */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  background: #E2E8F0;
+  padding: 3px;
+  border-radius: var(--radius-full);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-text-sub);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn.active {
+  background: var(--color-brand-navy);
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(17, 42, 70, 0.2);
+}
+
+/* Mobile Hamburger Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-brand-navy);
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Mobile Navigation Drawer */
+.mobile-nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17, 42, 70, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 290px;
+  height: 100vh;
+  background: #FFFFFF;
+  z-index: 1100;
+  box-shadow: -6px 0 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-drawer-close {
+  background: #F1F5F9;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-nav-link {
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-brand-navy);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  background: var(--color-brand-navy);
+  color: var(--color-white);
+  padding: 60px 0 36px;
+  margin-top: 80px;
+  border-top: 4px solid var(--color-emart-yellow);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand img {
+  height: 26px;
+  filter: brightness(1.2);
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-emart-yellow);
+}
+
+.footer-stores-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #94A3B8;
+}
+
+.footer-stores-list span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-stores-list span::after {
+  content: '•';
+  margin-left: 12px;
+  color: #475569;
+}
+
+.footer-stores-list span:last-child::after {
+  display: none;
+}
+
+.footer-notice {
+  font-size: 0.82rem;
+  color: #94A3B8;
+  max-width: 780px;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-customer-info {
+  font-size: 0.82rem;
+  color: #CBD5E1;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: #64748B;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   Toast Notification Box
+   ========================================================================== */
+.toast-notice {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(17, 42, 70, 0.95);
+  color: #FFFFFF;
+  padding: 14px 26px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 10001;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  border: 1.5px solid var(--color-emart-yellow);
+  text-align: center;
+  max-width: 90vw;
+}
+
+.toast-notice.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Responsive GNB */
+@media (max-width: 960px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    height: 64px;
+  }
+  .brand-sub {
+    display: none;
+  }
+  .brand-character-avatar {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-logo-img {
+    height: 28px;
+  }
+  .brand-name {
+    font-size: 0.92rem;
+  }
+  .lang-btn {
+    padding: 4px 8px;
+    font-size: 0.74rem;
+  }
+}

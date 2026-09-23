@@ -1,0 +1,1421 @@
+/* ==========================================================================
+   고래잇 x 이마트 보물찾기 - 컴포넌트 전용 스타일 (css/components.css)
+   히어로, 4단계 가이드, 가상 퀘스트, 매장 안내, 쿠폰, 레시피, 플로팅 버튼
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Global Section Common Styles
+   -------------------------------------------------------------------------- */
+.page-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-header-center {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 184, 28, 0.15);
+  color: #B45309;
+  border: 1px solid rgba(255, 184, 28, 0.4);
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  color: var(--color-brand-navy);
+  line-height: 1.3;
+  margin-bottom: 14px;
+  letter-spacing: -0.8px;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-sub);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   1. Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 40px 0 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-main-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--color-brand-navy);
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: -1.2px;
+}
+
+.hero-main-title .highlight {
+  color: #D97706;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-main-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 184, 28, 0.4);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero-lead-text {
+  font-size: 1.12rem;
+  color: var(--color-text-sub);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-emart-yellow);
+  color: var(--color-brand-navy);
+  font-size: 1.08rem;
+  font-weight: 800;
+  padding: 16px 28px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(255, 184, 28, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: var(--color-emart-yellow-hover);
+  box-shadow: 0 12px 30px rgba(255, 184, 28, 0.5);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-white);
+  color: var(--color-brand-navy);
+  font-size: 1.02rem;
+  font-weight: 700;
+  padding: 16px 26px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.btn-hero-secondary:hover {
+  border-color: var(--color-brand-navy);
+  transform: translateY(-2px);
+  background: #F8FAFC;
+}
+
+.hero-quest-briefing {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #FFE49E;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.briefing-tag {
+  background: #E3342F;
+  color: #FFFFFF;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.briefing-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-brand-navy);
+}
+
+/* Hero Visual Graphic */
+.hero-visual-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-char-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+
+.hero-char-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(17, 42, 70, 0.15));
+  animation: float-character 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.hero-char-img:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+@keyframes float-character {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-floating-bubble {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #FFFFFF;
+  border: 2px solid var(--color-emart-yellow);
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--color-brand-navy);
+  box-shadow: var(--shadow-md);
+  animation: pulse-bubble 2.5s infinite;
+  white-space: nowrap;
+}
+
+@keyframes pulse-bubble {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* --------------------------------------------------------------------------
+   2. 4-Step Process Guide
+   -------------------------------------------------------------------------- */
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.process-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 30px 22px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.process-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-emart-yellow);
+}
+
+.step-num-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-brand-navy);
+  color: var(--color-white);
+  font-weight: 900;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 10px rgba(17, 42, 70, 0.25);
+}
+
+.process-card:nth-child(1) .step-num-badge { background: #FFB81C; color: #112A46; }
+.process-card:nth-child(2) .step-num-badge { background: #E3342F; color: #FFFFFF; }
+.process-card:nth-child(3) .step-num-badge { background: #38C172; color: #FFFFFF; }
+.process-card:nth-child(4) .step-num-badge { background: #4A90E2; color: #FFFFFF; }
+
+.step-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.step-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-brand-navy);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.step-card-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-sub);
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   3. Interactive Quest Simulator (FR-03)
+   -------------------------------------------------------------------------- */
+.quest-board-container {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 2px solid #E2E8F0;
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.quest-character-dialogue {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(135deg, #FFF9E6 0%, #FFF2CC 100%);
+  border: 1.5px solid #FFE49E;
+  padding: 16px 22px;
+  border-radius: var(--radius-md);
+  margin-bottom: 30px;
+}
+
+.dialogue-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--color-emart-yellow);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogue-avatar img {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+.dialogue-text {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-brand-navy);
+  line-height: 1.5;
+}
+
+.quest-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.quest-status-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quest-status-badge-text {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-brand-navy);
+}
+
+.btn-quest-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-sub);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-quest-reset:hover {
+  background: #E2E8F0;
+  color: var(--color-brand-navy);
+}
+
+.quest-progress-track {
+  width: 100%;
+  height: 12px;
+  background: #E2E8F0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.quest-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-emart-yellow) 0%, #E3342F 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Quest Zones & Shelves */
+.quest-interactive-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 30px;
+}
+
+.quest-shelves-area {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.quest-zone-header {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-brand-navy);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shelf-items-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.shelf-item-card {
+  background: #F8FAFC;
+  border: 2px dashed #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.shelf-item-card:hover {
+  background: #FFFFFF;
+  border-color: var(--color-emart-yellow);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.shelf-item-card.zone-red { border-left: 6px solid #E3342F; }
+.shelf-item-card.zone-green { border-left: 6px solid #38C172; }
+.shelf-item-card.zone-yellow { border-left: 6px solid #FFB81C; }
+
+.shelf-item-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.shelf-item-info {
+  flex: 1;
+}
+
+.shelf-item-name {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--color-brand-navy);
+  margin-bottom: 3px;
+}
+
+.shelf-item-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.shelf-item-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #D97706;
+  background: #FFF7ED;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.shelf-item-card.collected {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+  border-style: solid;
+  opacity: 0.75;
+}
+
+.shelf-item-card.collected .shelf-item-tag {
+  color: #16A34A;
+  background: #DCFCE7;
+}
+
+/* Quest Cart & Map Stamping Board */
+.quest-cart-board {
+  background: #F8FAFC;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-board-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--color-brand-navy);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  flex: 1;
+}
+
+.cart-slot-box {
+  background: #FFFFFF;
+  border: 2px dashed #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  min-height: 120px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cart-slot-box.active {
+  border-style: solid;
+  border-color: var(--color-emart-yellow);
+  background: #FFFDF5;
+}
+
+.cart-slot-placeholder {
+  font-size: 2.2rem;
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+}
+
+.cart-slot-box.active .cart-slot-placeholder {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.cart-slot-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-sub);
+  margin-top: 6px;
+}
+
+/* Rubber Stamp Mark "쾅!" */
+.cart-stamp-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-14deg) scale(0);
+  border: 3px solid #E3342F;
+  color: #E3342F;
+  font-size: 0.95rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 12px rgba(227, 52, 47, 0.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.cart-stamp-mark.stamped {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(-14deg) scale(1);
+}
+
+.slot-stamped {
+  animation: slot-hit 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes slot-hit {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* Flying item animation */
+.quest-flying-item {
+  position: fixed;
+  font-size: 2.8rem;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Confetti Canvas */
+.confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10000;
+  display: none;
+}
+
+.confetti-canvas.active {
+  display: block;
+}
+
+/* Quest Complete Modal */
+.quest-complete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17, 42, 70, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.quest-complete-modal.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.quest-complete-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  max-width: 480px;
+  width: 100%;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  border: 3px solid var(--color-emart-yellow);
+}
+
+.quest-complete-modal.visible .quest-complete-card {
+  transform: scale(1);
+}
+
+.quest-complete-mascot {
+  width: 130px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  animation: float-character 3s infinite;
+}
+
+.quest-complete-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-brand-navy);
+  margin-bottom: 12px;
+}
+
+.quest-complete-text {
+  font-size: 1.02rem;
+  color: var(--color-text-sub);
+  line-height: 1.6;
+  margin-bottom: 26px;
+}
+
+.quest-complete-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-claim-reward {
+  background: var(--color-emart-yellow);
+  color: var(--color-brand-navy);
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 14px 26px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255, 184, 28, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.btn-claim-reward:hover {
+  background: var(--color-emart-yellow-hover);
+  transform: translateY(-2px);
+}
+
+.btn-modal-close {
+  background: #F1F5F9;
+  color: var(--color-text-sub);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   4. Busan Store Locator (FR-04)
+   -------------------------------------------------------------------------- */
+.store-filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.store-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.store-filter-btn {
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text-sub);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.store-filter-btn.active, .store-filter-btn:hover {
+  background: var(--color-brand-navy);
+  border-color: var(--color-brand-navy);
+  color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(17, 42, 70, 0.2);
+}
+
+.store-search-bar {
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+}
+
+.store-search-input {
+  width: 100%;
+  padding: 12px 18px 12px 44px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid #CBD5E1;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.store-search-input:focus {
+  border-color: var(--color-brand-navy);
+  box-shadow: 0 0 0 3px rgba(17, 42, 70, 0.1);
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  font-size: 1.1rem;
+}
+
+/* Store Cards Grid */
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.store-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.store-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-emart-yellow);
+}
+
+.store-card-header {
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.store-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.store-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.district-tag { background: #E0F2FE; color: #0369A1; }
+.status-tag { background: #DCFCE7; color: #15803D; }
+.feat-tag { background: #FEF3C7; color: #B45309; }
+
+.store-name {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: var(--color-brand-navy);
+}
+
+.store-info-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.store-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.info-icon {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.store-address-text {
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+
+.booth-highlight {
+  color: #B45309;
+  font-weight: 700;
+  background: #FFFBEB;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.btn-copy-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-sub);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-copy-address:hover {
+  background: #E2E8F0;
+  color: var(--color-brand-navy);
+}
+
+.store-phone-link {
+  color: #0284C7;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.store-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-map-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.btn-map-action.kakao-map {
+  background: #FEE500;
+  color: #191919;
+}
+
+.btn-map-action.naver-map {
+  background: #03C75A;
+  color: #FFFFFF;
+}
+
+.btn-map-action:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.95);
+}
+
+/* --------------------------------------------------------------------------
+   5. Mobile Reward & Coupon Voucher (FR-06)
+   -------------------------------------------------------------------------- */
+.coupons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 980px;
+  margin: 0 auto 36px;
+}
+
+.coupon-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.coupon-card.unlocked {
+  border-color: var(--color-emart-yellow);
+  box-shadow: 0 12px 30px rgba(255, 184, 28, 0.25);
+}
+
+.coupon-card.locked {
+  filter: grayscale(0.65);
+  opacity: 0.85;
+}
+
+.coupon-header {
+  background: linear-gradient(135deg, var(--color-brand-navy) 0%, #1A3A5E 100%);
+  color: #FFFFFF;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coupon-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coupon-emart-logo {
+  height: 26px;
+  width: auto;
+  filter: brightness(1.2);
+}
+
+.coupon-status-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.coupon-status-badge.active { background: #22C55E; color: #FFFFFF; }
+.coupon-status-badge.locked-badge { background: #64748B; color: #FFFFFF; }
+.coupon-status-badge.redeemed-badge { background: #94A3B8; color: #FFFFFF; }
+
+.coupon-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.coupon-value-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--color-brand-navy);
+  margin-bottom: 6px;
+}
+
+.coupon-sub-info {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+/* Realistic Barcode */
+.barcode-box {
+  width: 100%;
+  max-width: 320px;
+  background: #FFFFFF;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid #E2E8F0;
+  margin-bottom: 18px;
+}
+
+.barcode-svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+.barcode-number {
+  font-family: monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-brand-navy);
+  margin-top: 6px;
+}
+
+.coupon-footer-info {
+  border-top: 1px dashed #CBD5E1;
+  padding-top: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+  color: var(--color-text-sub);
+}
+
+.coupon-expiry-date {
+  font-weight: 800;
+  color: #DC2626;
+}
+
+.btn-staff-verify {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  background: #0284C7;
+  color: #FFFFFF;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-staff-verify:hover {
+  background: #0369A1;
+}
+
+.btn-staff-verify.done {
+  background: #94A3B8;
+  cursor: not-allowed;
+}
+
+.coupons-action-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* Coupon Save Modal */
+.coupon-save-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17, 42, 70, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.coupon-save-modal.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.coupon-save-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  max-width: 440px;
+  width: 100%;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   6. Weekly Recipe & Mystery Teaser (FR-07)
+   -------------------------------------------------------------------------- */
+.recipe-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.recipe-step-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 26px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.recipe-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.recipe-step-badge {
+  display: inline-block;
+  background: #FEF3C7;
+  color: #B45309;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.recipe-step-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-brand-navy);
+  margin-bottom: 8px;
+}
+
+.recipe-step-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-sub);
+  line-height: 1.55;
+}
+
+.recipe-chef-tip-box {
+  background: #F0FDF4;
+  border: 1.5px solid #86EFAC;
+  padding: 16px 22px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  color: #166534;
+  margin-bottom: 48px;
+}
+
+/* Mystery Teaser Box */
+.mystery-teaser-container {
+  background: linear-gradient(135deg, #112A46 0%, #1A3A5E 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.mystery-box-graphic {
+  font-size: 4.5rem;
+  margin: 10px auto 16px;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s;
+  animation: box-wobble 3s infinite;
+}
+
+@keyframes box-wobble {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  10%, 30% { transform: rotate(-8deg) scale(1.05); }
+  20%, 40% { transform: rotate(8deg) scale(1.05); }
+  50% { transform: rotate(0deg) scale(1); }
+}
+
+.mystery-hint-box {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  margin-top: 14px;
+}
+
+.mystery-hint-box.visible {
+  max-height: 120px;
+  opacity: 1;
+  padding: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Instagram Hashtags & Viral (FR-08)
+   -------------------------------------------------------------------------- */
+.hashtags-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.hashtags-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.hashtag-chip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-emart-yellow);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.hashtag-chip:hover {
+  background: var(--color-emart-yellow);
+  color: var(--color-brand-navy);
+}
+
+/* --------------------------------------------------------------------------
+   8. Floating Action Buttons (FAB)
+   -------------------------------------------------------------------------- */
+.floating-actions-wrap {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.floating-char-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-emart-yellow);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.floating-char-btn img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+.floating-char-btn:hover {
+  transform: scale(1.12) rotate(6deg);
+}
+
+.floating-char-tooltip {
+  position: absolute;
+  right: 76px;
+  background: var(--color-brand-navy);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.floating-char-btn:hover .floating-char-tooltip {
+  opacity: 1;
+}
+
+.btn-back-to-top {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  color: var(--color-brand-navy);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s;
+}
+
+.btn-back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-back-to-top:hover {
+  background: #F1F5F9;
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .process-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .quest-interactive-grid {
+    grid-template-columns: 1fr;
+  }
+  .coupons-grid {
+    grid-template-columns: 1fr;
+  }
+  .recipe-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .shelf-items-row {
+    grid-template-columns: 1fr;
+  }
+  .cart-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .floating-actions-wrap {
+    bottom: 20px;
+    right: 20px;
+  }
+  .floating-char-btn {
+    width: 54px;
+    height: 54px;
+  }
+}
